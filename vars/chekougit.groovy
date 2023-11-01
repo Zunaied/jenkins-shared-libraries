@@ -1,6 +1,2 @@
-def call(String gitUrl, String gitBranch,String gitCred) {
-    chekougit([
-              $class: 'GitSCM',
-        (branches: [[name: gitBranch]], extensions: [], userRemoteConfigs: [[credentialsId: gitCred, url: gitUrl ]])
-    ])
-}
+def call() {
+    chekougit(checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'git-cred', url: 'https://github.com/Zunaied/Youtube-clone-app.git']])
