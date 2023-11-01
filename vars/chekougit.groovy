@@ -1,9 +1,5 @@
-def call(String gitUrl, String gitBranch) {
+def call(String gitUrl, String gitBranch,String gitCred) {
     chekougit(
-        [
-        $class: 'GitSCM',
-        branches: [[name: gitBranch]],
-        userRemoteConfigs: [[url: gitUrl]]
-    ]
+        (branches: [[name: gitBranch]], extensions: [], userRemoteConfigs: [[credentialsId: gitCred, url: gitUrl ]])
     )
 }
