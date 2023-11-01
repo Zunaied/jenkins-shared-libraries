@@ -1,7 +1,9 @@
 def call(String gitUrl, String gitBranch) {
     checkoutgit(
+        [
+        $class: 'GitSCM',
         branches: [[name: gitBranch]],
-        extensions: [],
         userRemoteConfigs: [[url: gitUrl]]
+    ]
     )
 }
