@@ -1,5 +1,3 @@
-def call() {
-    withSonarQubeEnv('sonar-server') {
-        sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Youtube -Dsonar.projectKey=Youtube '''
-    }
+def call(credentialsId) {
+    waitForQualityGate abortPipeline: false, credentialsId: credentialsId   
 }
